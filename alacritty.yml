@@ -1,0 +1,54 @@
+window:
+  dimensions:
+    columns: 128
+    lines: 32
+
+  padding:
+    x: 16
+    y: 16
+
+  startup_mode: Windowed
+  
+scrolling:
+  history: 100000
+  multiplier: 5
+
+font:
+  normal:
+    family: "FiraCode Nerd Font"
+
+  bold:
+    family: "FiraCode Nerd Font"
+
+  italic:
+    family: "FiraCode Nerd Font"
+
+  bold_italic:
+    family: "FiraCode Nerd Font"
+  
+  size: 15.0
+
+colors:
+  primary:
+    background: '0x282828'
+    foreground: '0xdfbf8e'
+
+  normal:
+    black:   '0x665c54'
+    red:     '0xea6962'
+    green:   '0xa9b665'
+    yellow:  '0xe78a4e'
+    blue:    '0x7daea3'
+    magenta: '0xd3869b'
+    cyan:    '0x89b482'
+    white:   '0xdfbf8e'
+
+  bright:
+    black:   '0x928374'
+    red:     '0xea6962'
+    green:   '0xa9b665'
+    yellow:  '0xe3a84e'
+    blue:    '0x7daea3'
+    magenta: '0xd3869b'
+    cyan:    '0x89b482'
+    white:   '0xdfbf8e'

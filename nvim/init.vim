@@ -34,6 +34,7 @@ set splitbelow
 set splitright
 set title
 set ttimeoutlen=0
+set foldmethod=syntax
 
 " Italics
 let &t_ZH="\e[3m"

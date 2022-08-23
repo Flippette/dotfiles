@@ -7,7 +7,7 @@ window:
     x: 16
     y: 16
 
-  startup_mode: Windowed
+  startup_mode: Fullscreen
   
 scrolling:
   history: 100000
@@ -52,3 +52,4 @@ colors:
     magenta: '0xd3869b'
     cyan:    '0x89b482'
     white:   '0xdfbf8e'
+

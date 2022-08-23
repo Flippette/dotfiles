@@ -25,7 +25,6 @@ set completeopt=menuone,noinsert,noselect
 set colorcolumn=80
 set scrolloff=8
 set signcolumn=yes
-set cmdheight=1
 set updatetime=50
 set shortmess+=c
 set clipboard=unnamedplus
@@ -59,6 +58,8 @@ Plug 'ourigen/skyline.vim'
 Plug 'sindrets/diffview.nvim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'rust-lang/rust.vim'
+Plug 'tikhomirov/vim-glsl'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
@@ -66,7 +67,8 @@ lua << EOF
 require('gitsigns').setup {
     current_line_blame = true,
     current_line_blame_opts = {
-        delay = 250
+        delay = 250,
+        virt_text_pos = 'right_align'
     }
 }
 EOF
@@ -80,34 +82,46 @@ let mapleader=" "
 let g:skyline_fugitive=1
 
 " telescope.nvim
-nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("telescope>") })<CR>
+nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input(">") })<CR>
 
 " nerdtree
-nnoremap <leader>t :NERDTreeToggle<CR>
+nnoremap <silent> <A-t> :NERDTreeToggle<CR>
 
 " nerdtree-git-plugin
 let g:NERDTreeGitStatusUseNerdFonts=1
 
 " nerdcommenter
 let g:NERDCreateDefaultMappings=0
-nnoremap <leader>cc :call nerdcommenter#Comment('x', 'toggle')<CR>
+nnoremap <silent> <A-c> :call nerdcommenter#Comment(1, 'toggle')<CR>
 
 " diffview
-nnoremap <leader>dh :DiffviewOpen HEAD<CR>
+nnoremap <silent> <leader>dh :DiffviewOpen HEAD<CR>
+
+" coc
+inoremap <silent><expr> <Enter> coc#pum#visible() ? coc#pum#confirm() : "\<Enter>"
+inoremap <silent><expr> <Esc> coc#pum#visible() ? coc#pum#cancel() : "\<Esc>"
+nnoremap <nowait><expr> <C-j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-j>"
+nnoremap <nowait><expr> <C-k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-k>"
+inoremap <nowait><expr> <C-j> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+inoremap <nowait><expr> <C-k> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
 
 " create panels
-nnoremap <leader>sv <C-w>v
-nnoremap <leader>sh <C-w>s
+nnoremap <A-v> <C-w>v
+nnoremap <A-b> <C-w>s
 
 " move between panels
-nnoremap <leader>h <C-w>h
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
-nnoremap <leader>l <C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+
+" resize panels
+nnoremap <A-H> <C-w><
+nnoremap <A-L> <C-w>>
 
 " move line up and down
-nnoremap <leader>mj :m +1<CR>
-nnoremap <leader>mk :m -2<CR>
+nnoremap <C-Down> :m +1<CR>
+nnoremap <C-Up> :m -2<CR>
 
 " remember last position in file
 autocmd BufReadPost * normal! g`"zv

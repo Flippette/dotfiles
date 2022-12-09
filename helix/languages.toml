@@ -1,0 +1,13 @@
+[[grammar]]
+name = "nasm"
+source = { git = "https://github.com/PictElm/tree-sitter-nasm", rev = "a0db15db6fcfb1bf2cc8702500e55e558825c48b" }
+
+[[language]]
+name = "nasm"
+scope = "source.asm"
+file-types = ["s", "asm"]
+roots = []
+auto-format = false
+comment-token = ";"
+indent = { tab-width = 4, unit = "    " }
+grammar = "nasm"

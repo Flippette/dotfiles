@@ -1,28 +1,32 @@
-# Theme
-theme = "gruvbox"
+theme = "gruvbox_material"
 
-# Editor settings
 [editor]
 scrolloff = 8
+scroll-lines = 5
 line-number = "relative"
-completion-trigger-len = 1
 cursorline = true
+idle-timeout = 200
+completion-trigger-len = 1
+bufferline = "multiple"
 color-modes = true
 
+[editor.statusline]
+left = ["mode", "spacer", "file-type", "file-name"]
+right = ["spinner", "spacer", "diagnostics", "file-encoding", "file-line-ending", "selections", "position"]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.lsp]
+display-messages = true
+
 [editor.cursor-shape]
-insert = "block"
 normal = "block"
+insert = "block"
 select = "block"
 
 [editor.file-picker]
 hidden = false
-
-[editor.statusline]
-left = ["mode", "spinner", "file-type", "file-name"]
-right = ["diagnostics", "file-encoding", "file-line-ending", "selections", "position"]
-
-[editor.lsp]
-display-messages = true
 
 [editor.indent-guides]
 render = true
